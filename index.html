@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student Overview</title>
+
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <meta name="theme-color" content="#262262">
+
+    <!-- Import Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Custom Styles */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #262262;
+            color: white;
+        }
+        .paid {
+            background-color: #38a169;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .pending {
+            background-color: #e53e3e;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .present {
+            background-color: #38a169;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .absent {
+            background-color: #e53e3e;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .passport-img, .id-img {
+            width: 150px;
+            height: auto;
+            margin-right: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <!-- Service Worker for PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function() {
+                    console.log('Service Worker Registered');
+                });
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10">
+    <h1 class="text-center text-3xl text-indigo-800 mb-6 font-bold">Student Overview</h1>
+
+    <!-- Tab Navigation -->
+    <div class="flex justify-center mb-6">
+        <button class="tab-button py-2 px-4 mx-2 bg-gray-200 rounded-lg text-indigo-800 active" onclick="openTab('basic-info')">Basic Info</button>
+        <button class="tab-button py-2 px-4 mx-2 bg-gray-200 rounded-lg text-indigo-800" onclick="openTab('final-results')">Final Results</button>
+        <button class="tab-button py-2 px-4 mx-2 bg-gray-200 rounded-lg text-indigo-800" onclick="openTab('payments')">Payments</button>
+        <button class="tab-button py-2 px-4 mx-2 bg-gray-200 rounded-lg text-indigo-800" onclick="openTab('absences')">Absences</button>
+        <button class="tab-button py-2 px-4 mx-2 bg-gray-200 rounded-lg text-indigo-800" onclick="openTab('medical-history')">Medical History</button>
+    </div>
+
+    <!-- Tab Content: Basic Info -->
+    <div id="basic-info" class="tab-content active">
+        <div class="flex items-center mb-10">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sima Qadr" class="profile-img">
+            <div>
+                <h2 class="text-2xl text-indigo-800 font-semibold">Sima Qadr</h2>
+                <p class="text-gray-600"><i class="fas fa-id-badge"></i> Student ID: 987654 | <i class="fas fa-graduation-cap"></i> Department: Pharmacy</p>
+                <p class="text-gray-600"><i class="fas fa-envelope"></i> Email: sima.qadr@example.com</p>
+                <p class="text-gray-600"><i class="fas fa-passport"></i> Passport: AB9876543 | <i class="fas fa-phone"></i> Phone: +964 750 123 4567</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <img src="https://via.placeholder.com/150x220.png?text=Passport" alt="Passport" class="passport-img">
+            <img src="https://via.placeholder.com/150x220.png?text=ID+Card" alt="ID Card" class="id-img">
+        </div>
+    </div>
+
+    <!-- Tab Content: Final Results -->
+    <div id="final-results" class="tab-content">
+        <table class="w-full table-auto text-left border-collapse mb-10">
+            <thead>
+            <tr class="bg-indigo-800 text-white">
+                <th class="p-4">Subject</th>
+                <th class="p-4">Grade</th>
+                <th class="p-4">Semester</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-b">
+                <td class="p-4">Pharmacology</td>
+                <td class="p-4">A</td>
+                <td class="p-4">Fall 2023</td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">Biochemistry</td>
+                <td class="p-4">B+</td>
+                <td class="p-4">Fall 2023</td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">Computer Skills</td>
+                <td class="p-4">C</td>
+                <td class="p-4">Fall 2023</td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">Academic Debate</td>
+                <td class="p-4">F</td>
+                <td class="p-4">Fall 2023</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tab Content: Payments -->
+    <div id="payments" class="tab-content">
+        <table class="w-full table-auto text-left border-collapse mb-10">
+            <thead>
+            <tr class="bg-indigo-800 text-white">
+                <th class="p-4">Installment</th>
+                <th class="p-4">Amount</th>
+                <th class="p-4">Status</th>
+                <th class="p-4">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-b">
+                <td class="p-4">1st Installment</td>
+                <td class="p-4">$3000</td>
+                <td class="p-4"><span class="paid">Paid</span></td>
+                <td class="p-4">01/09/2023</td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">2nd Installment</td>
+                <td class="p-4">$3000</td>
+                <td class="p-4"><span class="pending">Pending</span></td>
+                <td class="p-4">01/12/2023</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tab Content: Absences -->
+    <div id="absences" class="tab-content">
+        <table class="w-full table-auto text-left border-collapse mb-10">
+            <thead>
+            <tr class="bg-indigo-800 text-white">
+                <th class="p-4">Subject</th>
+                <th class="p-4">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-b">
+                <td class="p-4">Pharmacology</td>
+                <td class="p-4"><span class="present">Present</span></td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">Biochemistry</td>
+                <td class="p-4"><span class="absent">Absent</span></td>
+            </tr>
+            <tr class="border-b">
+                <td class="p-4">Computer Skills</td>
+                <td class="p-4"><span class="present">Present</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tab Content: Medical History -->
+    <div id="medical-history" class="tab-content">
+        <table class="w-full table-auto text-left border-collapse mb-10">
+            <tbody>
+            <tr class="border-b">
+                <th class="p-4">Condition</th>
+                <td class="p-4">Asthma</td>
+            </tr>
+            <tr class="border-b">
+                <th class="p-4">Allergies</th>
+                <td class="p-4">Pollen</td>
+            </tr>
+            <tr class="border-b">
+                <th class="p-4">Medications</th>
+                <td class="p-4">Inhaler</td>
+            </tr>
+            <tr>
+                <th class="p-4">Last Checkup</th>
+                <td class="p-4">12/07/2023</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button class="mt-6 bg-indigo-800 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg">
+        <i class="fas fa-print"></i> Print Full Report
+    </button>
+</div>
+
+<!-- Tab JavaScript -->
+<script>
+    function openTab(tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+</body>
+
+</html>
