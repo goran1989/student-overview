@@ -13,6 +13,15 @@
     <!-- Import Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Include Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     <!-- Import Chart.js for charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -71,12 +80,40 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
+
+
+    <script>
+        // JavaScript function to validate the passcode and show Toastr notifications
+        function checkPasscode() {
+            var inputPasscode = document.getElementById("passcode").value;
+            var correctPasscode = "12345"; // Set your correct passcode here
+
+            if (inputPasscode === correctPasscode) {
+                // Hide passcode form and show student info
+                document.getElementById("passcode-form").classList.add("hidden");
+                document.getElementById("student-info").classList.remove("hidden");
+
+                // Show success notification
+                toastr.success("Passcode correct! Access granted.");
+            } else {
+                // Show error notification
+                toastr.error("Incorrect passcode. Please try again.");
+            }
+        }
+    </script>
 </head>
 
 <body class="bg-gray-100">
-
-<div class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10">
+<div id="passcode-form" class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10">
+    <h1 class="text-center text-3xl text-indigo-800 mb-6 font-bold">Enter Passcode</h1>
+    <div class="text-center">
+        <input type="password" id="passcode" placeholder="Enter your passcode" class="border p-2 rounded-lg">
+        <button onclick="checkPasscode()" class="bg-indigo-800 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg ml-4">Submit</button>
+    </div>
+</div>
+<div id="student-info" class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 hidden">
     <h1 class="text-center text-3xl text-indigo-800 mb-6 font-bold">Student Overview</h1>
+
 
     <!-- Profile Header with QR Code -->
     <div class="flex flex-col items-center mb-5">
@@ -258,6 +295,8 @@
         <i class="fas fa-download"></i> Download Full Report
     </button>
 </div>
+
+    </div>
 
 <!-- Chart.js Script for Grades -->
 <script>
