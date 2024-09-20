@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Choose Your Theme</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Background for the theme selection page */
+        body {
+            background: linear-gradient(135deg, #8EC5FC 20%, #E0C3FC 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .theme-button {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.1rem;
+            color: white;
+            text-align: left;
+            width: 100%;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-button:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Button colors for each theme */
+        .desert {
+            background: linear-gradient(135deg, #FF9A8B 20%, #FF6A88 100%);
+        }
+
+        .forest {
+            background: linear-gradient(135deg, #00416A 20%, #2E8B57 100%);
+        }
+
+        .blue-ocean {
+            background: linear-gradient(135deg, #0093E9 20%, #80D0C7 100%);
+        }
+
+        .light-violet {
+            background: linear-gradient(135deg, #E0C3FC 20%, #8EC5FC 100%);
+        }
+
+        .yellow-green {
+            background: linear-gradient(135deg,#CBF6AE  20%, #F4F4B4 100%);
+        }
+
+        .default-theme {
+            background: linear-gradient(135deg, #E5E5E5  20%, #F5F5F5 100%);
+            color: #333;
+        }
+
+        .black-theme {
+            background: linear-gradient(135deg, #333333 20%, #000000 100%);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Choose Your Theme</h1>
+
+
+    <a href="https://goran1989.github.io/student-overview/index2.html" class="theme-button default-theme"><i class="fas fa-desktop"></i> Default Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index3.html" class="theme-button black-theme"><i class="fas fa-moon"></i> Black Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index6.html" class="theme-button desert"><i class="fas fa-sun"></i> Desert Sunset Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index5.html" class="theme-button forest"><i class="fas fa-tree"></i> Forest Greens Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index7.html" class="theme-button blue-ocean"><i class="fas fa-water"></i> Blue Ocean Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index4.html" class="theme-button light-violet"><i class="fas fa-heart"></i> Light Violet Theme</a>
+
+    <a href="https://goran1989.github.io/student-overview/index8.html" class="theme-button yellow-green"><i class="fas fa-leaf"></i> Yellow & Green Theme</a>
+
+
+</div>
+
+</body>
+
+</html>
