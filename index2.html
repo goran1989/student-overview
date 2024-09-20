@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student Link Page</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Custom background with gradient and image */
+        body {
+            background: linear-gradient(135deg, rgba(38, 34, 98, 0.9), rgba(105, 26, 29, 0.9)), url('https://example.com/background-image.jpg') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            color: white;
+            text-align: left;
+            padding: 14px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            width: 100%;
+            max-width: 400px;
+            margin: 16px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #262262;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #4b5563;
+            font-size: 1rem;
+        }
+
+        .info-section {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-top: 12px;
+            margin-bottom: 24px;
+        }
+
+        .noble-info {
+            background-color: #262262;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+
+        .link-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .fa {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .link-button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Profile Section -->
+    <div class="mb-6 text-center">
+        <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Student Name" class="profile-img mx-auto">
+        <h2 class="mt-4 font-bold">Linda Newroz</h2>
+        <p class="text-gray-600">Pharmacy Department | 2nd Year</p>
+        <!-- Additional Info Below Image -->
+        <div class="info-section bg-gray-100 p-4 rounded-lg shadow-md">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-id-badge text-indigo-600 mr-3"></i>
+                <p class="text-gray-800"><strong>Student ID:</strong> 987654</p>
+            </div>
+            <div class="flex items-center mb-2">
+                <i class="fas fa-envelope text-indigo-600 mr-3"></i>
+                <p class="text-gray-800"><strong>Email:</strong> linda.newroz@example.com</p>
+            </div>
+            <div class="flex items-center mb-2">
+                <i class="fas fa-phone text-indigo-600 mr-3"></i>
+                <p class="text-gray-800"><strong>Phone:</strong> +964 750 123 4567</p>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-map-marker-alt text-indigo-600 mr-3"></i>
+                <p class="text-gray-800"><strong>Address:</strong> Erbil, Iraq</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Links Section -->
+    <div class="link-section">
+
+        <a href="https://facebook.com" class="link-button">
+            <span><i class="fas fa-info-circle"></i> Detailed Info</span>
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+
+        <a href="link-to-academic-records" class="link-button">
+            <span><i class="fas fa-book"></i> View Academic Records</span>
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+
+        <a href="link-to-payment-status" class="link-button">
+            <span><i class="fas fa-dollar-sign"></i> Payment Status</span>
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+
+        <a href="link-to-class-schedule" class="link-button">
+            <span><i class="fas fa-calendar"></i> Class Attendance</span>
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+
+        <a href="https://instagram.com" class="link-button">
+            <span><i class="fas fa-notes-medical"></i> Medical Records</span>
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+
+    </div>
+
+    <!-- Noble Technical Institute Info -->
+    <div class="noble-info">
+        <h3 class="font-bold text-lg">Noble Technical Institute</h3>
+        <h5 class="mt-2 white-color">Providing technical education with a focus on excellence. Visit us at: <a href="https://noble.edu.krd" class="underline text-blue-200">noble.edu.krd</a></h5>
+    </div>
+</div>
+
+</body>
+
+</html>
