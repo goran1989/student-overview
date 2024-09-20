@@ -13,6 +13,12 @@
     <!-- Import Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Import Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Import jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <style>
         /* Custom Styling */
         .paid {
@@ -72,8 +78,8 @@
 <div class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10">
     <h1 class="text-center text-3xl text-indigo-800 mb-6 font-bold">Student Overview</h1>
 
-    <!-- Profile Header -->
-       <div class="flex flex-col items-center mb-5">
+    <!-- Profile Header with QR Code -->
+    <div class="flex flex-col items-center mb-5">
         <!-- Centered Image -->
         <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Linda Newroz" class="profile-img mb-5">
 
@@ -86,11 +92,12 @@
             <p class="text-gray-600 mt-2"><i class="fas fa-passport"></i> Passport: AB9876543</p>
             <p class="text-gray-600 mt-2"><i class="fas fa-phone"></i> Phone: +964 750 123 4567</p>
         </div>
+        <!-- QR Code Placeholder -->
+        <img src="https://via.placeholder.com/100x100.png?text=QR+Code" alt="QR Code" class="mt-5">
     </div>
 
-
     <!-- Basic Information -->
-    <div class="mb-10">
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Basic Information</h2>
         <table class="w-full table-auto text-left border-collapse">
             <tbody>
@@ -125,7 +132,7 @@
     </div>
 
     <!-- Current Study -->
-    <div class="mb-10">
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Current Study</h2>
         <table class="w-full table-auto text-left border-collapse">
             <tbody>
@@ -145,49 +152,23 @@
         </table>
     </div>
 
-    <!-- Final Results -->
-    <div class="mb-10">
+    <!-- Final Results with Chart.js -->
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Final Results</h2>
-        <table class="w-full table-auto text-left border-collapse">
-            <thead>
-            <tr class="bg-indigo-800 text-white">
-                <th class="p-4">Subject</th>
-                <th class="p-4">Grade</th>
-                <th class="p-4">Semester</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="border-b">
-                <td class="p-4">Pharmacology</td>
-                <td class="p-4">A</td>
-                <td class="p-4">Fall 2023</td>
-            </tr>
-            <tr class="border-b">
-                <td class="p-4">Biochemistry</td>
-                <td class="p-4">B+</td>
-                <td class="p-4">Fall 2023</td>
-            </tr>
-            <tr class="border-b">
-                <td class="p-4">Computer Skills</td>
-                <td class="p-4">C</td>
-                <td class="p-4">Fall 2023</td>
-            </tr>
-            <tr class="border-b">
-                <td class="p-4">Academic Debate</td>
-                <td class="p-4">F</td>
-                <td class="p-4">Fall 2023</td>
-            </tr>
-            <tr>
-                <td class="p-4">Fundamentals of Nursing</td>
-                <td class="p-4">B+</td>
-                <td class="p-4">Fall 2023</td>
-            </tr>
-            </tbody>
-        </table>
+        <canvas id="gradeChart"></canvas>
+    </div>
+
+    <!-- Attendance Progress Bar -->
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Attendance</h2>
+        <div class="bg-gray-300 rounded-full h-2.5 mb-2">
+            <div class="bg-green-500 h-2.5 rounded-full" style="width: 85%;"></div>
+        </div>
+        <p class="text-gray-600">85% Attendance</p>
     </div>
 
     <!-- Payments -->
-    <div class="mb-10">
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Payments</h2>
         <table class="w-full table-auto text-left border-collapse">
             <thead>
@@ -195,7 +176,6 @@
                 <th class="p-4">Installment</th>
                 <th class="p-4">Amount</th>
                 <th class="p-4">Status</th>
-     
             </tr>
             </thead>
             <tbody>
@@ -203,20 +183,18 @@
                 <td class="p-4">1st Installment</td>
                 <td class="p-4">$3000</td>
                 <td class="p-4"><span class="paid">Paid</span></td>
-        
             </tr>
             <tr class="border-b">
                 <td class="p-4">2nd Installment</td>
                 <td class="p-4">$3000</td>
                 <td class="p-4"><span class="pending">Pending</span></td>
-           
             </tr>
             </tbody>
         </table>
     </div>
 
     <!-- Absences -->
-    <div class="mb-10">
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Absences</h2>
         <table class="w-full table-auto text-left border-collapse">
             <thead>
@@ -251,7 +229,7 @@
     </div>
 
     <!-- Medical History -->
-    <div>
+    <div class="mb-10 bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl text-indigo-800 font-semibold border-b-2 border-indigo-800 pb-2 mb-4">Medical History</h2>
         <table class="w-full table-auto text-left border-collapse">
             <tbody>
@@ -275,10 +253,37 @@
         </table>
     </div>
 
-    <button class="mt-6 bg-indigo-800 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg">
+    <!-- Download Full Report Button -->
+    <button onclick="downloadPDF()" class="mt-6 bg-indigo-800 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg">
         <i class="fas fa-download"></i> Download Full Report
     </button>
 </div>
+
+<!-- Chart.js Script for Grades -->
+<script>
+    var ctx = document.getElementById('gradeChart').getContext('2d');
+    var gradeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Pharmacology', 'Biochemistry', 'Computer Skills', 'Academic Debate', 'Nursing'],
+            datasets: [{
+                label: 'Grades',
+                data: [85, 78, 60, 40, 88],
+                backgroundColor: ['#4caf50', '#ff9800', '#f44336', '#2196f3', '#9c27b0'],
+            }]
+        }
+    });
+</script>
+
+<!-- jsPDF Script for PDF Generation -->
+<script>
+    function downloadPDF() {
+        var { jsPDF } = window.jspdf;
+        var doc = new jsPDF();
+        doc.text("Student Report - Linda Newroz", 10, 10);
+        doc.save('student-report.pdf');
+    }
+</script>
 
 </body>
 
