@@ -3,103 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fake IP Viewer</title>
+  <title>Digital Diva Detector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #f5f5f5;
+      font-family: 'Montserrat', sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      text-align: center;
+      padding: 30px;
     }
     h1 {
-      font-size: 1.75rem;
-      margin-bottom: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #ffd700;
+      margin-bottom: 10px;
     }
-    button {
-      padding: 14px 28px;
-      background: #2563eb;
-      border: none;
-      color: white;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #d4d4d4;
+    }
+    .button {
+      background: transparent;
+      color: #ffd700;
+      border: 2px solid #ffd700;
+      padding: 12px 24px;
       font-size: 1rem;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.2s ease-in-out;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
     }
-    button:hover {
-      background: #1e40af;
+    .button:hover {
+      background: #ffd700;
+      color: black;
     }
-    #ipDisplay {
-      margin-top: 24px;
+    .msg {
+      margin-top: 30px;
       font-size: 1.5rem;
-      color: #22c55e;
-      word-break: break-word;
+      color: #90ee90;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
-
-    .loading-dots {
-      font-size: 1.25rem;
-      color: #facc15;
-      margin-top: 1rem;
-    }
-
-    .loading-dots span {
-      animation: blink 1s infinite;
-    }
-
-    .loading-dots span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .loading-dots span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.4rem; }
-      button { padding: 12px 24px; font-size: 0.95rem; }
+    .msg.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <h1>🔍 Reveal Your IP Address</h1>
-  <button onclick="showFakeIP()">Reveal IP</button>
-  <div id="loading" class="loading-dots" style="display:none;">
-    Locating IP<span>.</span><span>.</span><span>.</span>
-  </div>
-  <div id="ipDisplay"></div>
-
-  <audio id="popSound" preload="auto">
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_a44c2d66b3.mp3" type="audio/mpeg">
-  </audio>
+  <h1>✨ Digital Diva Detector ✨</h1>
+  <p>Welcome to your fabulous cyber fashion forecast.</p>
+  <button class="button" onclick="showMessage()">Reveal Style ID</button>
+  <div class="msg" id="funMessage">💅 You’ve got elite digital taste. Fashion meets firewall!</div>
 
   <script>
-    function showFakeIP() {
-      const loading = document.getElementById("loading");
-      const ipDisplay = document.getElementById("ipDisplay");
-      const popSound = document.getElementById("popSound");
-
-      ipDisplay.textContent = "";
-      loading.style.display = "block";
-      popSound.play();
-
-      setTimeout(() => {
-        const fakeIP = '192.168.' + Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255);
-        loading.style.display = "none";
-        ipDisplay.textContent = `IP: ${fakeIP}`;
-      }, 2000);
+    function showMessage() {
+      document.getElementById('funMessage').classList.add('show');
     }
   </script>
 
